@@ -1,7 +1,8 @@
 const names = require("./study/name");
 const sayHi = require("./study/util");
-console.log(names);
+const data = require("./study/alternative-flavor");
+require("./study/mind-grenade");
 
-sayHi("susan");
-sayHi(names.jhon);
-sayHi(names.peter);
+// sayHi("susan");
+// sayHi(names.jhon);
+// sayHi(names.peter);
