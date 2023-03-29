@@ -1,5 +1,6 @@
 const { readFile, writeFile } = require("fs");
 
+console.log("start");
 // utf8 설정을 해야한다 아니면 버퍼값을 얻는다
 readFile("./content/first.txt", "utf8", (err, result) => {
   if (err) {
@@ -21,8 +22,9 @@ readFile("./content/first.txt", "utf8", (err, result) => {
           console.log(err);
           return;
         }
-        console.log(result);
+        console.log("done with this task");
       }
     );
   });
 });
+console.log("starting next task");

@@ -1,28 +1,12 @@
-const { readFile, writeFile } = require("fs");
+const http = require("http");
 
-// utf8 설정을 해야한다 아니면 버퍼값을 얻는다
-readFile("./content/first.txt", "utf8", (err, result) => {
-  if (err) {
-    console.log(err);
-    return;
+const server = http.createServer((req, res) => {
+  if (req.url === "/") {
+    res.end("Welcome to our home page");
   }
-  const first = result;
-  readFile("./content/second.txt", "utf8", (err, result) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
-    const second = result;
-    writeFile(
-      "./content/result-async.txt",
-      `Here is the result ${first} , ${second}`,
-      (err, result) => {
-        if (err) {
-          console.log(err);
-          return;
-        }
-        console.log(result);
-      }
-    );
-  });
+  if (req.url === "/about") {
+    res.end("Here is aboutpage");
+  }
 });
+
+server.listen(5000);
